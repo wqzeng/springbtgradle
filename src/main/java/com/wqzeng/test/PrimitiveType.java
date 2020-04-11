@@ -47,4 +47,9 @@ public class PrimitiveType {
     public void printfMaxValue() {
         logger.info("Interge maxValue:{}",Integer.MAX_VALUE);
     }
+
+    public void add2Integer(Integer i){
+        integer=integer+i;
+        logger.info("interge={}",integer);
+    }
 }

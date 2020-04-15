@@ -1,6 +1,6 @@
 package com.wqzeng.springbtgradle.model.dto;
 
-import com.wqzeng.springbtgradle.annotation.AnimalDescription;
+import com.wqzeng.springbtgradle.annotation.RareAnimal;
 import lombok.Data;
 
 @Data
@@ -10,7 +10,6 @@ public class Animal {
         this.age = age;
     }
 
-    @AnimalDescription("some animal name")
     private String name;
     private Integer age;
 

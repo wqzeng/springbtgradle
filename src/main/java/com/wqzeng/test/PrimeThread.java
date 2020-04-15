@@ -1,5 +1,6 @@
 package com.wqzeng.test;
 
+import com.wqzeng.springbtgradle.annotation.AutoPrintLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

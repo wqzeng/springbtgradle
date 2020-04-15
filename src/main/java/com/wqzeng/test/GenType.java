@@ -1,6 +1,7 @@
 package com.wqzeng.test;
 
 import com.alibaba.fastjson.JSON;
+import com.wqzeng.springbtgradle.annotation.AutoPrintLog;
 import com.wqzeng.springbtgradle.model.dto.Animal;
 import com.wqzeng.springbtgradle.model.dto.Cat;
 import com.wqzeng.springbtgradle.model.dto.Dog;
@@ -11,8 +12,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 泛型使用
+ */
 public class GenType {
     Logger logger= LoggerFactory.getLogger(this.getClass());
+    @AutoPrintLog
     public List<? super Animal> add2List(){
         List<? super Animal> animals=new ArrayList<>();
         animals.add(new Animal("animal",0));
@@ -25,6 +30,7 @@ public class GenType {
      * <? extends T>表示的是类型的上界（包含自身），因此通配的参数化类型可能是T或T的子类。正因为无法确定具体的类型是什么，add方法受限（可以添加null，因为null表示任何类型）
      * @param animals
      */
+    @AutoPrintLog
     public void add2ListByExtends(List<? extends Animal> animals){
         logger.info("animals[0]={}",JSON.toJSONString(animals.get(0)));
         logger.info("add2List animals={}",JSON.toJSONString(animals));

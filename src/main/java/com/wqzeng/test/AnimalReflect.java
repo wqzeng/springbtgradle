@@ -1,5 +1,6 @@
 package com.wqzeng.test;
 
+import com.wqzeng.springbtgradle.annotation.AutoPrintLog;
 import com.wqzeng.springbtgradle.model.dto.Animal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

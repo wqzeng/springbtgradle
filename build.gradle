@@ -18,18 +18,19 @@ configurations {
     }
 }
 
+
 repositories {
 //    mavenCentral()
 //    maven{ url 'http://maven.oschina.net/content/groups/public/'}
     maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
 }
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2'
     compileOnly 'org.projectlombok:lombok'
     compile('com.alibaba:fastjson:1.2.60')
+    compile 'org.aspectj:aspectjweaver:1.8.2'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'

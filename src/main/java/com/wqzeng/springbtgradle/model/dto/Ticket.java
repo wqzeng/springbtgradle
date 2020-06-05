@@ -1,5 +1,6 @@
 package com.wqzeng.springbtgradle.model.dto;
 
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

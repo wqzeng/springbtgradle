@@ -2,6 +2,7 @@ package com.wqzeng.springbtgradle.aspect;
 
 import com.alibaba.fastjson.JSON;
 import com.wqzeng.springbtgradle.annotation.AutoPrintLog;
+import org.aspectj.apache.bcel.classfile.Signature;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -33,12 +34,14 @@ public class AutoPrintLogAspect {
     @AfterThrowing(pointcut = "aspect()", throwing = "e")
     public void afterThrow(JoinPoint joinPoint, Exception e) {
         final Object[] args = joinPoint.getArgs();
-        logger.error("{} error , args={}", joinPoint.getSignature().getName(), JSON.toJSONString(args), e);
+        String name=joinPoint.getSignature().getDeclaringTypeName();
+        logger.error("{} error , args={}", name, JSON.toJSONString(args), e);
     }
     //配置后置返回通知,使用在方法aspect()上注册的切入点
     @Before("aspect()")
     public void printParamLog(JoinPoint joinPoint){
         final Object[] args = joinPoint.getArgs() ;
+        String name=joinPoint.getSignature().getDeclaringTypeName();
         try {
             logger.info("method={} request, args={}", joinPoint.getSignature().getName() , JSON.toJSONString(args));
         } catch (Exception e) {

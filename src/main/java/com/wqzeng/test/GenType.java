@@ -20,9 +20,9 @@ public class GenType {
     @AutoPrintLog
     public List<? super Animal> add2List(){
         List<? super Animal> animals=new ArrayList<>();
-        animals.add(new Animal("animal",0));
-        animals.add(new Cat("helleKitty",2));
-        animals.add(new Dog("big dog",3));
+        animals.add(new Animal("animal",0,""));
+        animals.add(new Cat("helleKitty",2,""));
+        animals.add(new Dog("big dog",3,""));
         return animals;
     }
 
@@ -45,9 +45,9 @@ public class GenType {
         logger.info("add2List dogs={}",JSON.toJSONString(dogs));
     }
     public void add2List(@NotNull List<Animal> animals){
-        animals.add(new Dog("big dog",8));
-        animals.add(new Dog("small dog",1));
-        animals.add(new Cat("helloKitty",1));
+        animals.add(new Dog("big dog",8,""));
+        animals.add(new Dog("small dog",1,""));
+        animals.add(new Cat("helloKitty",1,""));
         logger.info("animals:{}", JSON.toJSONString(animals));
         logger.info("animals's size:{}",animals.size());
     }

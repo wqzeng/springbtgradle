@@ -12,16 +12,16 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class GenTypeTest {
-    Animal animal = new Cat("animal", 100);
-    Dog dog = new Dog("big dog", 8);
-    Cat cat = new Cat("helleKitty", 1);
+    Animal animal = new Cat("animal", 100,"");
+    Dog dog = new Dog("big dog", 8,"");
+    Cat cat = new Cat("helleKitty", 1,"");
     GenType genType = new GenType();
 
     @Test
     public void add2List() {
         List animals = genType.add2List();
         Assert.assertEquals("animals add2List fault", 3, animals.size());
-        Assert.assertEquals(new Dog("big dog", 3), animals.get(2));
+        Assert.assertEquals(new Dog("big dog", 3,""), animals.get(2));
     }
 
     @Test

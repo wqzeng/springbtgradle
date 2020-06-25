@@ -1,4 +1,4 @@
-package com.wqzeng.springbtgradle.pattern;
+package com.wqzeng.springbtgradle.pattern.singleton;
 
 /**
  * 单例模式

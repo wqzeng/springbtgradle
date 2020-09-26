@@ -58,6 +58,8 @@ public class Ticket {
         logger.info("sellor:{} sell out ticket{}",Thread.currentThread().getName(),num);
     }
     public static void main(String[] args) {
+        Object o=new Object();
+        o.notify();
         Ticket ticket=new Ticket();
         Thread threadA=new Thread(ticket::sellBySync2);
         threadA.setName("sellerA");

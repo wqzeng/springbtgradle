@@ -2,6 +2,9 @@ package com.wqzeng.springbtgradle.constant.enums;
 
 import java.util.Optional;
 
+/**
+ * 颜色枚举
+ */
 public enum ColorEnum {
     RED((byte)1,"RED"),
     GREEN((byte)2,"GREEN"),

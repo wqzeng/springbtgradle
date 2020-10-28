@@ -1,5 +1,8 @@
 package com.wqzeng.springbtgradle.constant.enums;
 
+/**
+ * 算术枚举
+ */
 public enum CalculatorEnum {
     ADDITION {
         public Double execute( Double x, Double y ) {

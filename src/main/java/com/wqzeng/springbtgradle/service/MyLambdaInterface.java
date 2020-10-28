@@ -7,5 +7,4 @@ package com.wqzeng.springbtgradle.service;
 @FunctionalInterface
 public interface MyLambdaInterface {
     void doSomething(String s);
-//    void doAnotherThing(String s);
 }

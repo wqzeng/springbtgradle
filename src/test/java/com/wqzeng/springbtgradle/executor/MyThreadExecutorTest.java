@@ -21,6 +21,7 @@ public class MyThreadExecutorTest {
         List<Canteen> canteenList = new ArrayList<>();
 
         ExecutorService executorService=ExecutorServiceFactory.getExecutorService1();
+//        在call方法中countDownLatch.countDown()
         CountDownLatch countDownLatch = new CountDownLatch(canteenList.size());
 
         List<Future<String>> futureList = new ArrayList<>();

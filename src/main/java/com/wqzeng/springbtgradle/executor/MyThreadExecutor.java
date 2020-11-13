@@ -16,8 +16,14 @@ public class MyThreadExecutor extends ThreadPoolExecutor {
     private String name;
     private int queueSize;
 
+    /**
+     * keepAliveTime 当线程数大于corePoolSize时，keepAliveTime起作用
+     * @param name
+     * @param corePoolSize
+     * @param queueSize
+     */
     public MyThreadExecutor(String name,int corePoolSize, int queueSize) {
-        super(corePoolSize, corePoolSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(queueSize),new CallerRunsPolicy());
+        super(corePoolSize, corePoolSize+queueSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(queueSize),new CallerRunsPolicy());
         this.name=name;
         this.queueSize=queueSize;
 

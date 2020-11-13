@@ -36,7 +36,8 @@ public class MyLambdaInterfaceImplTest {
     @Test
     public void checkAndExecute() {
         List<Person> personList=Lists.newArrayList(
-                new Person("YiXing","Zhao",32),
+                new Person("YiXing1","Zhao",32),
+                new Person("YiXing2","Zhao",32),
                 new Person("YangGui","Li",30),
                 new Person("Chao","Li",35));
         MyLambdaInterfaceImpl myLambda = new MyLambdaInterfaceImpl();

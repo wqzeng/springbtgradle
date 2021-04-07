@@ -8,6 +8,11 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class FastDfsStorageServiceImpl implements IStorageService<String, FileVo> {
     @Override
+    public String getType() {
+        return "Dfs";
+    }
+
+    @Override
     public FileVo upload(MultipartFile file) {
         log.info("{}存储在Dfs中",file.getName());
         return new FileVo(file.getName(),file.getSize());

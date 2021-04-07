@@ -26,5 +26,15 @@ public class SetTest {
 
         setInt.retainAll(setInt2);
         Assert.assertEquals(setInt.size(),3);
+
+    }
+    public void testSetString() {
+        Set<String> setString = new HashSet<>();
+        setString.add("1");
+        setString.add("2");
+        setString.add("233");
+        setString.add("243");
+        setString.toArray();
+
     }
 }

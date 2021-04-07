@@ -21,4 +21,14 @@ public class BitSetTest {
         Assert.assertEquals(64, bitSet.size());
         System.out.printf("bitset:"+bitSet);
     }
+
+    @Test
+    public void testIf() {
+        int i=10;
+        if(i<11){
+            System.out.println("i<11");
+        }else if(i<12){
+            System.out.println("i<12");
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.wqzeng.springbtgradle.executor;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PreDestroy;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 public class ExecutorServiceFactory implements InitializingBean {
@@ -41,7 +43,7 @@ public class ExecutorServiceFactory implements InitializingBean {
             logger.error("executorService1已经存在，不能再初始化");
             return ;
         }
-        ExecutorServiceFactory.executorService1 = new MyThreadExecutor(name, size, queueSize);
+        ExecutorServiceFactory.executorService1 = Executors.newFixedThreadPool(size,new ThreadFactoryBuilder().setNameFormat("thread-%d").build());
     }
     private void shutDown(ExecutorService executorService , String executorName){
         if(executorService!=null && !executorService.isShutdown()){

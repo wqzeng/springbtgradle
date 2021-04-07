@@ -10,7 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-
+@Deprecated
 public class MyThreadExecutor extends ThreadPoolExecutor {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private String name;

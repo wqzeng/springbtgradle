@@ -1,4 +1,4 @@
-package com.wqzeng.test;
+package com.wqzeng.springbtgradle.bean;
 
 import java.util.Set;
 

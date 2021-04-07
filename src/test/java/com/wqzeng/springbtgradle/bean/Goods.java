@@ -1,6 +1,4 @@
-package com.wqzeng.test;
-
-import lombok.Data;
+package com.wqzeng.springbtgradle.bean;
 
 public class Goods {
     private Integer time;

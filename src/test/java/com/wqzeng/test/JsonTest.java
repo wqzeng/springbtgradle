@@ -1,6 +1,7 @@
 package com.wqzeng.test;
 
 import com.alibaba.fastjson.JSONObject;
+import com.wqzeng.springbtgradle.bean.ExportDataParams;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;

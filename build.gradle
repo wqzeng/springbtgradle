@@ -32,13 +32,14 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
     compile('org.springframework.boot:spring-boot-starter-web'){
         exclude group:'org.hibernate.validator'
-        exclude group:'org.springframework.boot:spring-boot-starter-tomcat'
+//        exclude group:'org.springframework.boot:spring-boot-starter-tomcat'
     }
     compile('com.alibaba:fastjson:1.2.60')
     compile 'org.aspectj:aspectjweaver:1.8.2'
     compile('javax.servlet:javax.servlet-api:4.0.1')
     //编译时有效，不参与打包
     compileOnly 'org.projectlombok:lombok'
+    compileOnly 'org.springframework.boot:spring-boot-starter-tomcat'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'

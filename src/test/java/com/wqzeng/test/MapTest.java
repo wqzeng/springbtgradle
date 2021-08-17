@@ -46,4 +46,21 @@ public class MapTest {
         integerMap2 = JSONObject.parseObject(intStringMap, HashMap.class);
         System.out.println(integerMap2);
     }
+
+    public void testFor() {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+        }
+
+
+        Iterator<Map.Entry<Integer, Integer>> entries = map.entrySet().iterator();
+
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Integer> entry = entries.next();
+            //可删除
+            entries.remove();
+            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+        }
+    }
 }

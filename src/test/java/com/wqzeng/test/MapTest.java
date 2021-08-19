@@ -62,5 +62,9 @@ public class MapTest {
             entries.remove();
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
+
+        map.forEach((k,v)->{
+            System.out.println("Key = " + k + ", Value = " + v);
+        });
     }
 }

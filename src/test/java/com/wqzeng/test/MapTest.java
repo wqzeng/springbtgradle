@@ -2,6 +2,7 @@ package com.wqzeng.test;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.util.StopWatch;
@@ -47,19 +48,22 @@ public class MapTest {
         System.out.println(integerMap2);
     }
 
+    @Test
     public void testFor() {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        Map<Integer, List<String>> map = new HashMap<>();
+        for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
 
+        map.computeIfAbsent(0, k -> Lists.newArrayList()).add("moke");
 
-        Iterator<Map.Entry<Integer, Integer>> entries = map.entrySet().iterator();
+
+        Iterator<Map.Entry<Integer, List<String>>> entries = map.entrySet().iterator();
 
         while (entries.hasNext()) {
-            Map.Entry<Integer, Integer> entry = entries.next();
+            Map.Entry<Integer, List<String>> entry = entries.next();
             //可删除
-            entries.remove();
+//            entries.remove();
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
 

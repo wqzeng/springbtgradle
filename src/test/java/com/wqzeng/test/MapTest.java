@@ -51,11 +51,13 @@ public class MapTest {
     @Test
     public void testFor() {
         Map<Integer, List<String>> map = new HashMap<>();
+        map.computeIfAbsent(0, k -> Lists.newArrayList()).add("moke");
+        map.computeIfAbsent(0, k -> Lists.newArrayList()).add("wqzeng");
+        map.computeIfAbsent(0, k -> Lists.newArrayList()).add("曾");
         for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
 
-        map.computeIfAbsent(0, k -> Lists.newArrayList()).add("moke");
 
 
         Iterator<Map.Entry<Integer, List<String>>> entries = map.entrySet().iterator();

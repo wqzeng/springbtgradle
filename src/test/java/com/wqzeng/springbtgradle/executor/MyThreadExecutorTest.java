@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,7 @@ public class MyThreadExecutorTest {
     public void testExecutor()throws Exception{
         List<Canteen> canteenList = new ArrayList<>();
 
-        ExecutorService executorService=ExecutorServiceFactory.getExecutorService1();
+        ExecutorService executorService=ExecutorServiceFactory.getExecutorService();
 //        在call方法中countDownLatch.countDown()
         CountDownLatch countDownLatch = new CountDownLatch(canteenList.size());
 

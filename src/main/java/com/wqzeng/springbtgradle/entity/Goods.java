@@ -1,4 +1,4 @@
-package com.wqzeng.springbtgradle.bean;
+package com.wqzeng.springbtgradle.entity;
 
 public class Goods {
     private Integer time;

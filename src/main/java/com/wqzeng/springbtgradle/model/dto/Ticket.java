@@ -1,6 +1,5 @@
 package com.wqzeng.springbtgradle.model.dto;
 
-import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,6 +7,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * @author moke.tsang
+ */
 public class Ticket {
     private Logger logger=LoggerFactory.getLogger(this.getClass());
     private int num=10;
@@ -43,7 +45,8 @@ public class Ticket {
      */
     public void sellBySync2(){
         while (num>0){
-            synchronized (this){//临界区
+            synchronized (this){
+                //临界区
                 if(num>0){
                     logger.info("sellor:{} sell ticket{}",Thread.currentThread().getName(),num);
                     num--;
@@ -58,8 +61,6 @@ public class Ticket {
         logger.info("sellor:{} sell out ticket{}",Thread.currentThread().getName(),num);
     }
     public static void main(String[] args) {
-        Object o=new Object();
-        o.notify();
         Ticket ticket=new Ticket();
         Thread threadA=new Thread(ticket::sellBySync2);
         threadA.setName("sellerA");

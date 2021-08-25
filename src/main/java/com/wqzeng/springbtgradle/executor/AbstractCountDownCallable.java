@@ -27,5 +27,10 @@ public abstract class AbstractCountDownCallable<T> implements Callable<T> {
         }
     }
 
+    /**
+     * 待实现执行方法
+     * @return
+     * @throws Exception
+     */
     protected abstract T executeMethod() throws Exception;
 }

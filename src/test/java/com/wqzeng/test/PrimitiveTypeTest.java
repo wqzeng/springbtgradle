@@ -1,6 +1,6 @@
 package com.wqzeng.test;
 
-import com.wqzeng.springbtgradle.bean.PrimitiveType;
+import com.wqzeng.springbtgradle.entity.PrimitiveType;
 import org.junit.Assert;
 import org.junit.Test;
 

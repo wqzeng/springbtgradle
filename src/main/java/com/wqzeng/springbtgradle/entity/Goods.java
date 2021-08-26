@@ -1,22 +1,11 @@
 package com.wqzeng.springbtgradle.entity;
 
+import com.wqzeng.springbtgradle.constant.enums.ColorEnum;
+import lombok.Data;
+
+@Data
 public class Goods {
+    private ColorEnum colorEnum;
     private Integer time;
     private String name;
-
-    public Integer getTime() {
-        return time;
-    }
-
-    public void setTime(Integer time) {
-        this.time = time;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

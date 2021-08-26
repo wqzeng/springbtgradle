@@ -5,7 +5,8 @@ package com.wqzeng.springbtgradle.constant.enums;
  */
 public enum CalculatorEnum {
     ADDITION {
-        public Double execute( Double x, Double y ) {
+        @Override
+        public Double execute(Double x, Double y ) {
             return x + y; // 加法
         }
     },

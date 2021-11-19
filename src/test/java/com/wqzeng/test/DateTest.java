@@ -21,6 +21,8 @@ public class DateTest {
 
         String d=LocalDateTime.of(LocalDate.now(), LocalTime.of(8,0)).format(DateTimeFormatter.ISO_DATE_TIME);
         System.out.println(d);
+        Date date2=new Date(1634525940000L);
+        System.out.println(date2);
     }
 
 }

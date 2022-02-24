@@ -25,4 +25,11 @@ public class DateTest {
         System.out.println(date2);
     }
 
+    @Test
+    public void testLocalDate() {
+        LocalDate today=LocalDate.now();
+        System.out.println("today:"+today);
+        LocalDate birthday=LocalDate.of(2022, 1,16);
+        System.out.println("birthday:"+birthday);
+    }
 }

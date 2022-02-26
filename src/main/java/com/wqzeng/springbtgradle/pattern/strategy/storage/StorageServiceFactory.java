@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Component
 public class StorageServiceFactory implements InitializingBean, ApplicationContextAware {
-    private Map<String, IStorageService> STORAGE_SERVICE_MAP = new HashMap<>(2);
+    private static Map<String, IStorageService> STORAGE_SERVICE_MAP = new HashMap<>(2);
     private ApplicationContext applicationContext;
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -26,7 +26,7 @@ public class StorageServiceFactory implements InitializingBean, ApplicationConte
         this.applicationContext=applicationContext;
     }
 
-    public IStorageService getStorageService(String type){
+    public static IStorageService getStorageService(String type){
         return STORAGE_SERVICE_MAP.get(type);
     }
 }

@@ -9,7 +9,7 @@ public abstract class AbstractImportTemplate {
 
     public abstract  int columnCount();
 
-    public abstract ImportLineRecord buildRecordModel(List<String> lines);
+    public abstract ImportLineRecord buildRecordModel(String[] lines);
 
     public String validate(boolean isVc, String[] columns) {
         if (columns == null) {

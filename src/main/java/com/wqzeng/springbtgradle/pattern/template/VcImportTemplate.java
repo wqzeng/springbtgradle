@@ -3,8 +3,6 @@ package com.wqzeng.springbtgradle.pattern.template;
 import com.wqzeng.springbtgradle.model.dto.ImportLineRecord;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class VcImportTemplate extends AbstractImportTemplate {
     @Override
@@ -18,9 +16,9 @@ public class VcImportTemplate extends AbstractImportTemplate {
     }
 
     @Override
-    public ImportLineRecord buildRecordModel(List<String> lines) {
+    public ImportLineRecord buildRecordModel(String[] lines) {
         return ImportLineRecord.builder()
-                .name(lines.get(0))
+                .name(lines[0])
                 .id(0)
                 .build();
     }

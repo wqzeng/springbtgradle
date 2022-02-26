@@ -33,6 +33,10 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
     implementation 'com.h2database:h2:1.4.200'
     implementation 'org.apache.commons:commons-lang3'
+    implementation 'commons-io:commons-io:2.10.0'
+    implementation 'org.apache.poi:poi:4.1.0'
+    implementation 'org.apache.poi:poi-ooxml:4.1.0'
+    implementation 'com.monitorjbl:xlsx-streamer:2.1.0'
     compile('com.alibaba:fastjson:1.2.60')
     compile 'org.aspectj:aspectjweaver:1.8.2'
     compile('javax.servlet:javax.servlet-api:4.0.1')

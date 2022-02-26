@@ -6,8 +6,7 @@ import com.wqzeng.springbtgradle.pattern.template.AbstractImportTemplate;
 import com.wqzeng.springbtgradle.pattern.template.ImportTemplateFactory;
 import com.wqzeng.springbtgradle.util.ExcelUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,7 +17,7 @@ import java.util.List;
 @Slf4j
 @Service
 public class FastDfsStorageServiceImpl implements IStorageService<String, FileVo> {
-    private static Logger logger = LoggerFactory.getLogger(ExcelUtils.class);
+    @Autowired
     private ImportTemplateFactory importTemplateFactory;
     @Override
     public String getType() {
@@ -40,7 +39,7 @@ public class FastDfsStorageServiceImpl implements IStorageService<String, FileVo
                 recordLists.add(importLineRecord);
             }
         } catch (Exception e) {
-            logger.error("导入异常", e);
+            log.error("导入异常", e);
         }
         log.info("{}存储在Dfs中",uploadFile.getName());
         return new FileVo(uploadFile.getName(),file.getSize());

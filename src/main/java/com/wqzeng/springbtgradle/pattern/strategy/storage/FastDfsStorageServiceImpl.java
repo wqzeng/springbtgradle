@@ -40,7 +40,7 @@ public class FastDfsStorageServiceImpl implements IStorageService<String, FileVo
                 recordLists.add(importLineRecord);
             }
         } catch (Exception e) {
-            logger.error("导入提报商品异常", e);
+            logger.error("导入异常", e);
         }
         log.info("{}存储在Dfs中",uploadFile.getName());
         return new FileVo(uploadFile.getName(),file.getSize());

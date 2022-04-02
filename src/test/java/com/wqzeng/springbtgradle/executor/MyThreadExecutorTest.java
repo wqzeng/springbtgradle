@@ -21,6 +21,10 @@ public class MyThreadExecutorTest {
     @Test
     public void testExecutor() throws Exception {
         List<Canteen> canteenList = new ArrayList<>();
+        for(int i=0;i<110;i++){
+            Canteen canteen=new Canteen("canteen"+i);
+            canteenList.add(canteen);
+        }
 
         ExecutorService executorService = ExecutorServiceFactory.getExecutorService();
 //        在call方法中countDownLatch.countDown()
@@ -32,16 +36,27 @@ public class MyThreadExecutorTest {
                 @Override
                 protected String executeMethod() throws Exception {
                     canteen.sell();
-                    return "OK";
+                    return canteen.getName()+":OK";
                 }
             }));
         }
-
-        if (countDownLatch.await(30, TimeUnit.SECONDS)) {
-            logger.error("并发处理超时");
+        try {
+            countDownLatch.await();
+            logger.info("并发处理完成");
+        } catch (InterruptedException e) {
+            logger.error("并发处理中断",e);
         }
+//        try {
+//            if (countDownLatch.await(2000, TimeUnit.MICROSECONDS)) {
+//                logger.info("并发处理完成");
+//            }else{
+//                logger.info("并发处理超时");
+//            }
+//        } catch (InterruptedException e) {
+//            logger.error("并发处理中断",e);
+//        }
         for (Future<String> future : futureList) {
-            Assert.assertEquals(future.get(), "OK");
+            logger.info(future.get());
         }
     }
 

@@ -22,7 +22,7 @@ public abstract class AbstractCountDownCallable<T> implements Callable<T> {
             T t =  executeMethod();
             return t;
         } finally {
-            logger.info("当前线程耗时：{}",System.currentTimeMillis()-start);
+//            logger.info("当前线程耗时：{}",System.currentTimeMillis()-start);
             latch.countDown();
         }
     }

@@ -15,7 +15,7 @@ public class ProducerProxy implements Producer{
     }
 
     @Override
-    public void sell() {
+    public void sell() throws InterruptedException {
         logger.info("小卖部卖货前");
         producer.sell();
         logger.info("小卖部卖货后");

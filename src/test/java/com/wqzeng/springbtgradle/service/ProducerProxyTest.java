@@ -9,7 +9,7 @@ import java.lang.reflect.Proxy;
 public class ProducerProxyTest {
     private Logger logger= LoggerFactory.getLogger(this.getClass());
     @Test
-    public void sell() {
+    public void sell() throws InterruptedException {
         Producer producer=new Canteen();
 //        静态代理
         ProducerProxy producerProxy=new ProducerProxy(producer);
@@ -17,7 +17,7 @@ public class ProducerProxyTest {
     }
 
     @Test
-    public void sellByJDKProxy() {
+    public void sellByJDKProxy() throws InterruptedException {
         Producer producer=new Canteen();
         //动态代理 代理类在程序运行时创建的代理方式被称为 动态代理
         //如果目标对象实现了接口,采用JDK的动态代理，如果目标对象没有实现接口,必须采用cglib动态代理
@@ -32,7 +32,7 @@ public class ProducerProxyTest {
     }
 
     @Test
-    public void sellByCgligProxy() {
+    public void sellByCgligProxy() throws InterruptedException {
         Canteen canteen=new Canteen();
         //动态代理 代理类在程序运行时创建的代理方式被称为 动态代理
         //如果目标对象实现了接口,采用JDK的动态代理，如果目标对象没有实现接口,必须采用cglib动态代理

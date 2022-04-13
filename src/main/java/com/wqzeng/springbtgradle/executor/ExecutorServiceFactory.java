@@ -36,7 +36,7 @@ public class ExecutorServiceFactory implements InitializingBean {
     protected void destory(){
         shutDown(executorService,"多线程Factory");
     }
-    public static  ExecutorService getExecutorService() throws Exception {
+    public  ExecutorService getExecutorService() throws Exception {
         if(ExecutorServiceFactory.executorService ==null){
             //        从配置中获取线程池数
             int poolSize=Math.min(MAX_SIZE,Runtime.getRuntime().availableProcessors() );
@@ -53,12 +53,12 @@ public class ExecutorServiceFactory implements InitializingBean {
         }
 //        executorService = Executors.newFixedThreadPool(corePoolSize,new ThreadFactoryBuilder().setNameFormat("thread-%d-"+name).build());
 //        executorService = Executors.newScheduledThreadPool(corePoolSize,new ThreadFactoryBuilder().setNameFormat("thread-%d-"+name).build());
-        executorService = Executors.newCachedThreadPool(new ThreadFactoryBuilder().setNameFormat("thread-%d-"+name).build());
-//        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
-//                .setNameFormat("thread-pool-%d-"+name).build();
-//        executorService = new ThreadPoolExecutor(corePoolSize, MAX_SIZE,
-//                1000L, TimeUnit.MILLISECONDS,
-//                new LinkedBlockingQueue<>(queueSize), namedThreadFactory,new ThreadPoolExecutor.CallerRunsPolicy());
+//        executorService = Executors.newCachedThreadPool(new ThreadFactoryBuilder().setNameFormat("thread-%d-"+name).build());
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("thread-pool-%d-"+name).build();
+        executorService = new ThreadPoolExecutor(corePoolSize, MAX_SIZE,
+                1000L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<>(queueSize), namedThreadFactory,new ThreadPoolExecutor.CallerRunsPolicy());
     }
     private void shutDown(ExecutorService executorService , String executorName){
         if(executorService!=null && !executorService.isShutdown()){

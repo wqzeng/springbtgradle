@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
 
 public class PrimeThread extends Thread {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -40,5 +41,17 @@ public class PrimeThread extends Thread {
             Thread.sleep(1000);
             return 2;
         }
+    }
+
+    public static void main(String[] args) {
+        //注入钩子线程，退出时会执行
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.printf("The hook thread is running.");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }));
     }
 }

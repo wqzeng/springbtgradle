@@ -42,7 +42,7 @@ spring:
     database: 0
     host: 106.55.57.209
     port: 6379
-    password: Zwq10018797
+    password: 123456
     jedis:
       pool:
         #最大空闲连接

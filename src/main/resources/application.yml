@@ -35,14 +35,14 @@ spring:
 #     #serverTimezone=UTC&
 #    url: jdbc:mysql://localhost:3306/ims?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
 #    username: root
-#    password: 123456
+#    password: zwq13610018797
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    type: com.alibaba.druid.pool.DruidDataSource
   redis:
     database: 0
     host: 106.55.57.209
     port: 6379
-    password: 123456
+    password: Zwq10018797
     jedis:
       pool:
         #最大空闲连接

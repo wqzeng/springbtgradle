@@ -1,6 +1,9 @@
 package com.wqzeng.springbtgradle.controller;
 
 import com.wqzeng.springbtgradle.annotation.AutoPrintLog;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -14,11 +17,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+//@Slf4j
 @RestController
 @RequestMapping("/redis")
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 60)
+@EnableRedisHttpSession
 public class RedisController {
+    private Logger log = LoggerFactory.getLogger(RedisController.class);
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
@@ -79,6 +83,7 @@ public class RedisController {
 //    @AutoPrintLog
     public Map<String, String> getSession(@RequestParam String key,HttpServletRequest request) {
         String value = (String) request.getSession().getAttribute(key);
+        log.info("get session key:{},value:{}",key,value);
         Map<String, String> result = new HashMap<>();
         result.put(key, value);
         return result;

@@ -54,3 +54,7 @@ spring:
         min-idle: 0
     #连接超时时间
     timeout: 5000
+  resources:
+    cache:
+      cachecontrol:
+        no-cache: true

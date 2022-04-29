@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+//@Component
 public class AutoPrintLogAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 

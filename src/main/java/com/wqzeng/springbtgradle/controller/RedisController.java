@@ -23,10 +23,13 @@ import java.util.Set;
 @EnableRedisHttpSession
 public class RedisController {
     private Logger log = LoggerFactory.getLogger(RedisController.class);
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
-    @Autowired
-    private RedisTemplate redisTemplate;
+    private final StringRedisTemplate stringRedisTemplate;
+    private final RedisTemplate redisTemplate;
+
+    public RedisController(StringRedisTemplate stringRedisTemplate, RedisTemplate redisTemplate) {
+        this.stringRedisTemplate = stringRedisTemplate;
+        this.redisTemplate = redisTemplate;
+    }
 
     @GetMapping("/write")
     public Map<String, String> write(@RequestParam String key,@RequestParam String value) {

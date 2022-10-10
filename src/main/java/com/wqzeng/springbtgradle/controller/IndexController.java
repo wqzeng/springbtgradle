@@ -1,14 +1,9 @@
 package com.wqzeng.springbtgradle.controller;
 
-import com.wqzeng.springbtgradle.annotation.AutoPrintLog;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.annotation.RequestScope;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 @RestController
 public class IndexController {

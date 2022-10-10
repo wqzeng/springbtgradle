@@ -38,7 +38,30 @@ public class BSearchTree<T extends Comparable> {
      * 用栈中序遍历
      * @return
      */
-    public List<T> inOrderTraversalWithStack() {
+    public List<T> inOrderTraversalByStack() {
+        List<T> result= Lists.newArrayList();
+        if (root == null) {
+            return result;
+        }
+        Stack<BTreeNode> treeNodes=new Stack<>();
+        BTreeNode<T> cur=root;
+        while (cur != null || !treeNodes.isEmpty()) {
+            while (cur != null) {
+                treeNodes.push(cur);
+                cur = cur.left;
+            }
+            cur = treeNodes.pop();
+            result.add(cur.element);
+            cur = cur.right;
+        }
+        return result;
+    }
+
+    /**
+     * 用栈前序遍历
+     * @return
+     */
+    public List<T> preOrderTraversalByStack() {
         List<T> result= Lists.newArrayList();
         if (root == null) {
             return result;
@@ -84,5 +107,35 @@ public class BSearchTree<T extends Comparable> {
         result.addAll(inOrderTraversal(parent.right));
         return result;
     }
+    /**
+     * 用递归前序遍历
+     * @param parent
+     * @return
+     */
+    private List<T> preOrderTraversal(BTreeNode<T> parent) {
+        List<T> result= Lists.newArrayList();
+        if (parent == null) {
+            return result;
+        }
+        result.add(parent.element);
+        result.addAll(preOrderTraversal(parent.left));
+        result.addAll(preOrderTraversal(parent.right));
+        return result;
+    }
 
+    /**
+     * 用递归后序遍历
+     * @param parent
+     * @return
+     */
+    private List<T> postOrderTraversal(BTreeNode<T> parent) {
+        List<T> result= Lists.newArrayList();
+        if (parent == null) {
+            return result;
+        }
+        result.addAll(postOrderTraversal(parent.left));
+        result.addAll(postOrderTraversal(parent.right));
+        result.add(parent.element);
+        return result;
+    }
 }

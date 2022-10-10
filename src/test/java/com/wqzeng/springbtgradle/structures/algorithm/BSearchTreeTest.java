@@ -1,14 +1,12 @@
 package com.wqzeng.springbtgradle.structures.algorithm;
 
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
 @Slf4j
 public class BSearchTreeTest {
 
@@ -25,7 +23,7 @@ public class BSearchTreeTest {
         bst.insert(8);
         bst.insert(12);
         List<Integer> allElement=bst.inOrderTraversal();
-        List<Integer> traversalByStack=bst.inOrderTraversalWithStack();
+        List<Integer> traversalByStack=bst.inOrderTraversalByStack();
         Assert.assertEquals(7,allElement.size());
         log.info(JSONObject.toJSONString(allElement));
         log.info(JSONObject.toJSONString(traversalByStack));

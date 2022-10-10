@@ -40,9 +40,9 @@ spring:
 #    type: com.alibaba.druid.pool.DruidDataSource
   redis:
     database: 0
-    host: 106.55.57.209
+    host: localhost
     port: 6379
-    password: Zwq10018797
+    password: 123456
     jedis:
       pool:
         #最大空闲连接
@@ -58,3 +58,14 @@ spring:
     cache:
       cachecontrol:
         no-cache: true
+  security:
+    user:
+      name: springbt
+      password: zwq123456
+management:
+  server:
+    port: 9080
+  endpoints:
+    web:
+      exposure:
+        include: '*'

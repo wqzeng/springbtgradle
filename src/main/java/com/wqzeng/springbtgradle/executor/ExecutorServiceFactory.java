@@ -27,7 +27,7 @@ public class ExecutorServiceFactory implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
 //        从配置中获取线程池数
-        int poolSize=Math.max(MAX_SIZE,Runtime.getRuntime().availableProcessors());
+        int poolSize=Math.min(MAX_SIZE,Runtime.getRuntime().availableProcessors()+1);
         int queueSize=1024;
         logger.info("初始化线程池大小:{}，线程队列大小:{}",poolSize,queueSize);
         setExecutorService("测试多线程",poolSize,queueSize);
@@ -39,7 +39,7 @@ public class ExecutorServiceFactory implements InitializingBean {
     public  ExecutorService getExecutorService() throws Exception {
         if(ExecutorServiceFactory.executorService ==null){
             //        从配置中获取线程池数
-            int poolSize=Math.min(MAX_SIZE,Runtime.getRuntime().availableProcessors() );
+            int poolSize=Math.min(MAX_SIZE,Runtime.getRuntime().availableProcessors()+1 );
             int queueSize=30;
             logger.info("初始化线程池大小:{}，最大线程池大小：{},线程队列大小:{}",poolSize,MAX_SIZE,queueSize);
             setExecutorService("测试多线程",poolSize,queueSize);

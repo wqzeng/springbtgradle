@@ -39,21 +39,21 @@ public class MyThreadExecutorTest {
 
         List<Future<String>> futureList = new ArrayList<>();
         for (Canteen canteen : canteenList) {
-            futureList.add(executorService.submit(()->{
-                try {
-                    canteen.sell();
-                    return canteen.getName()+":OK";
-                } finally {
-                    countDownLatch.countDown();
-                }
-            }));
-//            futureList.add(executorService.submit(new AbstractCountDownCallable<String>(countDownLatch) {
-//                @Override
-//                protected String executeMethod() throws Exception {
+//            futureList.add(executorService.submit(()->{
+//                try {
 //                    canteen.sell();
 //                    return canteen.getName()+":OK";
+//                } finally {
+//                    countDownLatch.countDown();
 //                }
 //            }));
+            futureList.add(executorService.submit(new AbstractCountDownCallable<String>(countDownLatch) {
+                @Override
+                protected String executeMethod() throws Exception {
+                    canteen.sell();
+                    return canteen.getName()+":OK";
+                }
+            }));
         }
         try {
             countDownLatch.await();

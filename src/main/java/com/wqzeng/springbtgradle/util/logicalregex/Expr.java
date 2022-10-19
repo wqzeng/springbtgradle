@@ -1,4 +1,4 @@
-package com.wqzeng.test.logicalregex;
+package com.wqzeng.springbtgradle.util.logicalregex;
 
 import java.util.Map;
 

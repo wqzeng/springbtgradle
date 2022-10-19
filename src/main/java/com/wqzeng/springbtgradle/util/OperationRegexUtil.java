@@ -1,4 +1,11 @@
-package com.wqzeng.test.logicalregex;
+package com.wqzeng.springbtgradle.util;
+
+import com.sun.org.apache.regexp.internal.RE;
+import com.wqzeng.springbtgradle.util.logicalregex.Expr;
+import com.wqzeng.springbtgradle.util.logicalregex.OrExpr;
+import com.wqzeng.springbtgradle.util.logicalregex.Token;
+import com.wqzeng.springbtgradle.util.logicalregex.TokenStream;
+import com.wqzeng.springbtgradle.util.logicalregex.TokenTypeEnum;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -7,8 +14,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class OperationRegexUtil {
-    private static final String REGEX="(\\s+)|(?i)(and)|(or)|(=|!=|>=|<=|>|<|(?i)in|not in)|(\\()|(\\))|(\\w+\\s?\\+*-?\\.?/?\\|?(?!(?i)in|not in|>|<|>=|<=|=)\\w+)|\'([^\']+)\'";
+    private static final String REGEX="(\\s+)|(?i)\\b(and)\\b|\\b(or)\\b|(=|!=|>=|<=|>|<|\\bin\\b|\\bnot in\\b)|(\\()|(\\))|(\\w+\\s?\\+*-?\\.?/?\\|?(?!\\bin\\b|\\bnot in\\b|>|<|>=|<=|=)\\w+)|\'([^\']+)\'";
     private static final Pattern TOKENS = Pattern.compile(REGEX);
+
+    public static boolean isMatch(String input) {
+        return Pattern.matches(REGEX,input);
+    }
     public static Expr parse(TokenStream stream) throws ParseException {
         OrExpr expr = new OrExpr(stream);
         stream.consume(TokenTypeEnum.EOF); // ensure that we parsed the whole input
@@ -27,13 +38,16 @@ public class OperationRegexUtil {
         int offset = 0;
         TokenTypeEnum[] types = TokenTypeEnum.values();
         while (offset != input.length()) {
-            if (!matcher.find() || matcher.start() != offset) {
-                throw new ParseException("Unexpected token at " + offset,offset);
+            boolean find=matcher.find();
+            int start = matcher.start();
+            if (!find || start != offset) {
+                throw new ParseException("Unexpected token at " + start, offset);
             }
             for (int i = 0; i < types.length; i++) {
-                if (matcher.group(i + 1) != null) {
+                String data = matcher.group(i + 1);
+                if (data != null) {
                     if (types[i] != TokenTypeEnum.WHITESPACE)
-                        inputData.add(new Token(types[i],offset,matcher.group(i + 1)));
+                        inputData.add(new Token(types[i],offset,data));
                     break;
                 }
             }

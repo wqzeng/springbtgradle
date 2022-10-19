@@ -1,4 +1,4 @@
-package com.wqzeng.test.logicalregex;
+package com.wqzeng.springbtgradle.util.logicalregex;
 
 import com.google.common.collect.Lists;
 

@@ -1,5 +1,7 @@
 package com.wqzeng.test;
 
+import com.wqzeng.springbtgradle.util.DateUtils;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class AnimalReflectTest {
@@ -11,5 +13,13 @@ public class AnimalReflectTest {
     @Test
     public void listFields(){
         animalReflect.listFields();
+    }
+
+    @Test
+    public void nullTest() {
+        DateUtils dateUtils=null;
+        if (null == dateUtils) {
+            Assert.assertTrue(null == dateUtils);
+        }
     }
 }

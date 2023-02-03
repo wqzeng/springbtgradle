@@ -1,4 +1,4 @@
-package com.wqzeng.springbtgradle.structures.algorithm;
+package com.wqzeng.springbtgradle.structure.algorithm;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;

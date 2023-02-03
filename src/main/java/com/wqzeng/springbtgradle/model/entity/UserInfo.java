@@ -1,4 +1,4 @@
-package com.wqzeng.springbtgradle.entity;
+package com.wqzeng.springbtgradle.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

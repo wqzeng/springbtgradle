@@ -1,6 +1,5 @@
 package com.wqzeng.springbtgradle.util;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.wqzeng.springbtgradle.util.logicalregex.Expr;
 import com.wqzeng.springbtgradle.util.logicalregex.OrExpr;
 import com.wqzeng.springbtgradle.util.logicalregex.Token;
@@ -43,6 +42,9 @@ public class OperationRegexUtil {
             if (!find || start != offset) {
                 throw new ParseException("Unexpected token at " + start, offset);
             }
+            String group0 = matcher.group(0);
+            System.out.println("group0:"+group0);
+            System.out.println("groupCount:"+matcher.groupCount());
             for (int i = 0; i < types.length; i++) {
                 String data = matcher.group(i + 1);
                 if (data != null) {

@@ -1,4 +1,4 @@
-package com.wqzeng.springbtgradle.structures;
+package com.wqzeng.springbtgradle.structure;
 
 public class LinkedListNode<T> {
     T element;

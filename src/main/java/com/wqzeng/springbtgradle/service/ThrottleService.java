@@ -1,6 +1,6 @@
 package com.wqzeng.springbtgradle.service;
 
-import com.wqzeng.springbtgradle.entity.Goods;
+import com.wqzeng.springbtgradle.model.entity.Goods;
 import com.wqzeng.springbtgradle.model.dto.ThrottleConfig;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.wqzeng.vm;
 
-import com.wqzeng.springbtgradle.entity.Goods;
+import com.wqzeng.springbtgradle.model.entity.Goods;
 
 import java.util.ArrayList;
 import java.util.List;

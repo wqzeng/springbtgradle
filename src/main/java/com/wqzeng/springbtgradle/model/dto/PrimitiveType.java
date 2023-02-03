@@ -1,4 +1,4 @@
-package com.wqzeng.springbtgradle.entity;
+package com.wqzeng.springbtgradle.model.dto;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

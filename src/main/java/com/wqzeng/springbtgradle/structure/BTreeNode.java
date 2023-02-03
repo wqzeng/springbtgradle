@@ -1,4 +1,4 @@
-package com.wqzeng.springbtgradle.structures;
+package com.wqzeng.springbtgradle.structure;
 
 public class BTreeNode<T> {
     public T element;

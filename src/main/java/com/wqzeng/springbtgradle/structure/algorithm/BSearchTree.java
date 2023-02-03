@@ -1,7 +1,7 @@
-package com.wqzeng.springbtgradle.structures.algorithm;
+package com.wqzeng.springbtgradle.structure.algorithm;
 
 import com.google.common.collect.Lists;
-import com.wqzeng.springbtgradle.structures.BTreeNode;
+import com.wqzeng.springbtgradle.structure.BTreeNode;
 
 import java.util.List;
 import java.util.Stack;

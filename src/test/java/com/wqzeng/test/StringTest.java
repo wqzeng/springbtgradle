@@ -33,16 +33,21 @@ public class StringTest {
     }
     @Test
     public void testFormat () {
-        DecimalFormat formatter = new DecimalFormat("0.#E0");
-        String str = "32";
+        String pattern = "0.#E00";
+        String place="#";
+        for(int i=1;i<4;i++){
+            //替换pattern中的#为小数位数
+            place=place + "#";
+        }
+        System.out.println(place);
+        DecimalFormat formatter = new DecimalFormat(pattern.replace("#", place));
+
+        String str = "32789893234.1";
         //判断str是否可以转换成BigDecimal
         boolean flag = str.matches("[+-]?(\\d+(\\.?\\d*)?|\\.\\d+)([Ee][+-]?\\d+)?");
         if (flag) {
             BigDecimal decimal=new BigDecimal(str);
-//            System.out.println(decimal.setScale(2,BigDecimal.ROUND_HALF_UP));
-            String de= decimal.multiply(new BigDecimal(100)).setScale(2, RoundingMode.HALF_UP).toString()+"%";
-            System.out.println(de);
-            System.out.printf(formatter.format(decimal.setScale(3,BigDecimal.ROUND_HALF_UP)));
+            System.out.printf(formatter.format(decimal).replaceAll("E(\\d+)", "E+$1"));
         }
     }
 

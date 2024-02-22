@@ -13,10 +13,7 @@ public class ThrottleService {
             return false;
         }
         refreshThrottleConfig();
-        if (!throttleConfig.getColorEnums().contains(goods.getColorEnum())){
-            return false;
-        }
-        return true;
+        return throttleConfig.getColorEnums().contains(goods.getColorEnum());
     }
 
     private void refreshThrottleConfig() {

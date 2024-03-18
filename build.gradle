@@ -40,6 +40,8 @@ dependencies {
     implementation 'com.monitorjbl:xlsx-streamer:2.1.0'
     implementation 'io.netty:netty-all:4.1.51.Final'
     implementation 'com.alibaba:druid:1.1.6'
+    implementation 'com.itextpdf:itextpdf:5.5.10'
+    implementation 'com.itextpdf:itext-asian:5.2.0'
     compile('com.alibaba:fastjson:1.2.60')
     compile 'org.aspectj:aspectjweaver:1.8.2'
     compile('javax.servlet:javax.servlet-api:4.0.1')
